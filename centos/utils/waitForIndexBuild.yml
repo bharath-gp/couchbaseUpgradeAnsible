@@ -8,6 +8,6 @@
 
 - name: Wait for Index ready
   include: getIndexStatus.yml
-  until: indexState == "Ready"
+  until: indexState == "Ready" and progress = "100"
   retries: 50
   delay: 20

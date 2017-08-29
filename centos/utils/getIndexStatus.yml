@@ -14,6 +14,7 @@
 - name: Set fact
   set_fact:
     indexState: "{{ inner_item.status }}"
+    progress: "{{ inner_item.progress }}"
   with_items: "{{ indexStatusResult.json.indexes }}"
   when: inner_item.index == indexName
   loop_control:

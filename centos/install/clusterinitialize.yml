@@ -47,7 +47,7 @@
         --cluster-username={{ couchbase_server_admin }} \
         --cluster-password={{ couchbase_server_password }} \ 
         --cluster-port={{couchbase_server_admin_port}} \
-        --services=data --index-storage-setting={{ couchbase_indexer_type }} \
+        --services={{ couchbase_server_node_services }} --index-storage-setting={{ couchbase_indexer_type }} \
         --cluster-ramsize={{ couchbase_server_ram }}
       when: cb_major_version['stdout'] == "4"
       ignore_errors: True
@@ -58,7 +58,7 @@
          --cluster-username={{ couchbase_server_admin }} \
          --cluster-password={{ couchbase_server_password }} \
          --cluster-port={{couchbase_server_admin_port}} \
-         --services=data \
+         --services={{ couchbase_server_node_services } \
          --cluster-ramsize={{ couchbase_server_ram }}
       when:  cb_major_version['stdout'] == "5"
       ignore_errors: True
